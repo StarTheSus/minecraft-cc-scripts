@@ -48,7 +48,7 @@ end
 print("Flight Pylon Horizontal Boundary Guard Online.")
 
 while true do
-	local players = detector.getPlayersInBox(
+	local players = detector.getPlayersInRange(
 		CENTER_X - HORIZ_RANGE,
 		-1000,
 		CENTER_Z - HORIZ_RANGE,
