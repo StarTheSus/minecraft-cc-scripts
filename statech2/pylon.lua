@@ -4,7 +4,7 @@ local HORIZ_RANGE = 64
 local REDSTONE_SIDE = "back"
 local POLL_INTERVAL = 7
 
-local detector = peripheral.find("playerDetector")
+local detector = peripheral.find("player_detector")
 
 if not detector then
 	print("Player Detector not found!")
