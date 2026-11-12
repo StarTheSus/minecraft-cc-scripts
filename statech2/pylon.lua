@@ -7,7 +7,7 @@ local POLL_INTERVAL = 7
 local detector = peripheral.find("playerDetector")
 
 if not detector then
-	error("Player Detector not found!")
+	print("Player Detector not found!")
 end
 
 -- Helper function to update the monitor display
