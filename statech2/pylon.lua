@@ -10,6 +10,41 @@ if not detector then
 	error("Player Detector not found!")
 end
 
+-- Helper function to update the monitor display
+local function updateDisplay(isActive, detectedPlayers)
+	if not monitor then
+		return
+	end
+
+	monitor.setTextScale(1)
+	monitor.setBackgroundColor(colors.black)
+	monitor.clear()
+
+	-- Header
+	monitor.setCursorPos(2, 2)
+	monitor.setTextColor(colors.lightGray)
+	monitor.write("FLIGHT PYLON STATUS")
+
+	-- Status Indicator
+	monitor.setCursorPos(2, 4)
+	if isActive then
+		monitor.setTextColor(colors.lime)
+		monitor.write("STATE: ONLINE")
+	else
+		monitor.setTextColor(colors.red)
+		monitor.write("STATE: STANDBY")
+	end
+
+	-- Detected Players List
+	monitor.setCursorPos(2, 6)
+	monitor.setTextColor(colors.white)
+	if #detectedPlayers > 0 then
+		monitor.write("In Range: " .. table.concat(detectedPlayers, ", "))
+	else
+		monitor.write("In Range: None")
+	end
+end
+
 print("Flight Pylon Horizontal Boundary Guard Online.")
 
 while true do
